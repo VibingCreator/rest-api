@@ -1,25 +1,17 @@
 import express from "express";
 
+import { findOne, findAll, create, update, remove } from "../controllers/books.js";
+
 const router = express.Router();
 
-router.get("/books", (req, res) => {
-    res.send(`GET ${req.originalUrl}`);
-});
+router.get("/books", findAll);
 
-router.get("/books/:id", (req, res) => {
-    res.send(`GET ${req.originalUrl}`);
-});
+router.get("/books/:id", findOne);
 
-router.post("/books", (req, res) => {
-    res.send(`POST ${req.originalUrl}`);
-});
+router.post("/books", create);
 
-router.put("/books/:id", (req, res) => {
-    res.send(`PUT ${req.originalUrl}`);
-});
+router.put("/books/:id", update);
 
-router.delete("/books/:id", (req, res) => {
-    res.send(`DELETE ${req.originalUrl}`);
-});
+router.delete("/books/:id", remove);
 
 export { router as books };
